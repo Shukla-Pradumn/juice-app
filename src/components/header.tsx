@@ -1,13 +1,14 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ThemeToggle } from './theme-toggle';
 import {
   ChevronDown,
   CreditCard,
   FileText,
-  Link,
+  Link as LinkIcon,
   Menu,
   X,
   Building2,
@@ -72,7 +73,7 @@ export function Header() {
           title: 'Pay Link',
           description:
             'Create a one-time payment link with customizable options',
-          icon: Link,
+          icon: LinkIcon,
           href: '/pay-link',
         },
         {
@@ -130,13 +131,13 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-gray-200 dark:border-gray-800 bg-[#f9fafb]/80 dark:bg-gray-950/80 backdrop-blur-sm">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex-none">
-          <a href="/" className="block">
+          <Link href="/" className="block">
             <img
               src="https://juiceclaims.com/Juice-2024-Logo-2000x800.png"
               alt="Juice"
               className="h-8"
             />
-          </a>
+          </Link>
         </div>
 
         <nav className="hidden md:flex items-center justify-center flex-grow gap-8">
@@ -173,7 +174,7 @@ export function Header() {
                             const Icon = item.icon;
                             return (
                               <React.Fragment key={itemIdx}>
-                                <a
+                                <Link
                                   href={item.href}
                                   className="flex items-start gap-4 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                                 >
@@ -196,7 +197,7 @@ export function Header() {
                                       {item.description}
                                     </p>
                                   </div>
-                                </a>
+                                </Link>
                                 {item.divider && (
                                   <div className="border-t border-gray-200 dark:border-gray-700 my-2"></div>
                                 )}
@@ -212,12 +213,12 @@ export function Header() {
             </div>
 
             <div className="relative">
-              <a
+              <Link
                 href="https://juiceclaims.com/rfp"
                 className="text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
               >
                 FAQs
-              </a>
+              </Link>
             </div>
           </div>
         </nav>
@@ -257,7 +258,7 @@ export function Header() {
                     </div>
                     <div className="ml-4 space-y-2">
                       {category.items.map((item, itemIdx) => (
-                        <a
+                        <Link
                           key={itemIdx}
                           href={item.href}
                           className="block px-4 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
@@ -274,7 +275,7 @@ export function Header() {
                             </div>
                             <div className="font-medium">{item.title}</div>
                           </div>
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>
@@ -282,7 +283,7 @@ export function Header() {
               </div>
 
               <div className="space-y-2">
-                <a
+                <Link
                   href="/faq"
                   className="block px-4 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
                 >
@@ -290,7 +291,7 @@ export function Header() {
                   <div className="text-sm text-gray-600 dark:text-gray-400">
                     Frequently Asked Questions
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
           </motion.div>
