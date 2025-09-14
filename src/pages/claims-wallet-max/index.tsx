@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Header } from '@/components/header';
+import Footer from '@/components/footer';
 import { ClaimsWalletCardPlus } from '@/components/claims-wallet-card-plus';
 import {
   HeroSection,
@@ -126,7 +127,7 @@ export default function ClaimsWalletMaxPage() {
           <FeatureCards />
         </div>
       </main>
-
+      <Footer />
       <OTPModal
         isOpen={showOTPModal}
         onClose={handleCloseOTPModal}
