@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
-import { SectionHeader } from './card-section/section-header';
-import { IncomingPaymentsSection } from './card-section/incoming-payments-section';
-import { OutgoingPaymentsSection } from './card-section/outgoing-payments-section';
-import { ClaimsWalletSection } from './card-section/claims-wallet-section';
+import { SectionHeader } from './section-header';
+import { IncomingPaymentsSection } from './incoming-payments-section';
+import { OutgoingPaymentsSection } from './outgoing-payments-section';
+import { ClaimsWalletSection } from './claims-wallet-section';
 
 export default function CardSection() {
   return (
