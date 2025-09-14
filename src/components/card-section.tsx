@@ -22,9 +22,13 @@ export default function CardSection() {
               href="/premium-pay-agent"
               className="animate-on-scroll bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-lg transition-shadow flex flex-col relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-32 bg-[#3662e3] text-white text-center py-1 text-xs font-semibold shadow-md">
+              <div
+                className="absolute top-0 right-0 w-32 bg-[#3662e3] text-white text-center py-1 text-xs font-semibold shadow-md"
+                style={{ transform: 'rotate(30deg) translate(22%, -20%)' }}
+              >
                 CLIENT
               </div>
+
               <div className="flex items-center gap-4 mb-3">
                 <div className="p-3 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
                   <svg
@@ -151,7 +155,10 @@ export default function CardSection() {
               href="/premium-pay-client"
               className="animate-on-scroll bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-lg transition-shadow flex flex-col relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-32 bg-[#00adee] text-white text-center py-1 text-xs font-semibold shadow-md">
+              <div
+                className="absolute top-0 right-0 w-32 bg-[#00adee] text-white text-center py-1 text-xs font-semibold shadow-md"
+                style={{ transform: 'rotate(30deg) translate(22%, -20%)' }}
+              >
                 JUICE
               </div>
               <div className="flex items-center gap-4 mb-3">
@@ -280,7 +287,10 @@ export default function CardSection() {
               href="/policy-hub"
               className="animate-on-scroll bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-lg transition-shadow flex flex-col relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-32 bg-[#3662e3] text-white text-center py-1 text-xs font-semibold shadow-md">
+              <div
+                className="absolute top-0 right-0 w-32 bg-[#3662e3] text-white text-center py-1 text-xs font-semibold shadow-md"
+                style={{ transform: 'rotate(30deg) translate(22%, -20%)' }}
+              >
                 CLIENT
               </div>
               <div className="flex items-center gap-4 mb-3">
@@ -441,7 +451,10 @@ export default function CardSection() {
               href="/pay-link"
               className="animate-on-scroll bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-lg transition-shadow flex flex-col relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-32 bg-[#00adee] text-white text-center py-1 text-xs font-semibold shadow-md">
+              <div
+                className="absolute top-0 right-0 w-32 bg-[#00adee] text-white text-center py-1 text-xs font-semibold shadow-md"
+                style={{ transform: 'rotate(30deg) translate(22%, -20%)' }}
+              >
                 JUICE
               </div>
               <div className="flex items-center gap-4 mb-3">
@@ -613,7 +626,10 @@ export default function CardSection() {
               href="/pay-partners"
               className="animate-on-scroll bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-lg transition-shadow flex flex-col relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-32 bg-[#00adee] text-white text-center py-1 text-xs font-semibold shadow-md">
+              <div
+                className="absolute top-0 right-0 w-32 bg-[#00adee] text-white text-center py-1 text-xs font-semibold shadow-md"
+                style={{ transform: 'rotate(30deg) translate(22%, -20%)' }}
+              >
                 JUICE
               </div>
               <div className="flex items-center gap-4 mb-3">
@@ -768,7 +784,10 @@ export default function CardSection() {
               href="https://app.juicefin.com"
               className="animate-on-scroll bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-lg transition-shadow flex flex-col relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-32 bg-[#00adee] text-white text-center py-1 text-xs font-semibold shadow-md">
+              <div
+                className="absolute top-0 right-0 w-32 bg-[#00adee] text-white text-center py-1 text-xs font-semibold shadow-md"
+                style={{ transform: 'rotate(30deg) translate(22%, -20%)' }}
+              >
                 JUICE
               </div>
               <div className="flex items-center gap-4 mb-3">
@@ -990,7 +1009,10 @@ export default function CardSection() {
               href="/claimant-verification"
               className="animate-on-scroll bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-lg transition-shadow flex flex-col relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-32 bg-[#00adee] text-white text-center py-1 text-xs font-semibold shadow-md">
+              <div
+                className="absolute top-0 right-0 w-32 bg-[#00adee] text-white text-center py-1 text-xs font-semibold shadow-md"
+                style={{ transform: 'rotate(30deg) translate(22%, -20%)' }}
+              >
                 JUICE
               </div>
               <div className="flex items-center gap-4 mb-3">
@@ -1190,7 +1212,10 @@ export default function CardSection() {
               href="/virtual-claims-card"
               className="animate-on-scroll bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-lg transition-shadow flex flex-col relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-32 bg-[#00adee] text-white text-center py-1 text-xs font-semibold shadow-md">
+              <div
+                className="absolute top-0 right-0 w-32 bg-[#00adee] text-white text-center py-1 text-xs font-semibold shadow-md"
+                style={{ transform: 'rotate(30deg) translate(22%, -20%)' }}
+              >
                 JUICE
               </div>
               <div className="flex items-center gap-4 mb-3">
@@ -1367,7 +1392,10 @@ export default function CardSection() {
               href="/claims-wallet-pro"
               className="animate-on-scroll bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-lg transition-shadow flex flex-col relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-32 bg-[#00adee] text-white text-center py-1 text-xs font-semibold shadow-md">
+              <div
+                className="absolute top-0 right-0 w-32 bg-[#00adee] text-white text-center py-1 text-xs font-semibold shadow-md"
+                style={{ transform: 'rotate(30deg) translate(22%, -20%)' }}
+              >
                 JUICE
               </div>
               <div className="flex items-center gap-4 mb-3">
@@ -1545,7 +1573,10 @@ export default function CardSection() {
               href="/claims-wallet-max"
               className="animate-on-scroll bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-lg transition-shadow flex flex-col relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-32 bg-[#00adee] text-white text-center py-1 text-xs font-semibold shadow-md">
+              <div
+                className="absolute top-0 right-0 w-32 bg-[#00adee] text-white text-center py-1 text-xs font-semibold shadow-md"
+                style={{ transform: 'rotate(30deg) translate(22%, -20%)' }}
+              >
                 JUICE
               </div>
               <div className="flex items-center gap-4 mb-3">
