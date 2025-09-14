@@ -35,7 +35,7 @@ export default function HomePage() {
           </div>
           <CardSection />
           <div className="max-w-4xl mx-auto text-center bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/50 dark:to-indigo-950/50 rounded-xl p-12">
-            <h2 className="text-3xl font-bold mb-4">
+            <h2 className="text-3xl font-bold mb-4 dark:text-gray-400">
               Ready to Transform Your Insurance Payments?
             </h2>
             <p className="text-gray-600 dark:text-gray-400 mb-8 text-lg">

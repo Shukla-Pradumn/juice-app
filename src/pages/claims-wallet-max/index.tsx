@@ -191,25 +191,27 @@ export default function ClaimsWalletMaxPage() {
             </h2>
 
             <div className="grid md:grid-cols-2 gap-6">
-              {/* Virtual Card - Primary Option */}
               <motion.div className="md:col-span-2" variants={cardVariants}>
                 <button
                   onClick={() => handleSelectPaymentMethod('virtual-card')}
                   className="w-full bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow border-2 border-blue-600/50 dark:border-blue-500/30 flex md:flex-row flex-col items-center text-left gap-6 relative overflow-hidden group"
                 >
-                  {/* Card visual */}
                   <div className="w-[200px] h-[120px] rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 p-4 flex-shrink-0 shadow-lg relative">
                     <div className="absolute top-2 left-2">
                       <img
-                        src="/Juice-2024-Logo-2000x800.png"
+                        src="https://juiceclaims.com/Juice-2024-Logo-2000x800.png"
                         alt="Juice Financial"
                         className="h-6"
                       />
                     </div>
                     <div className="absolute bottom-2 right-2">
-                      <div className="text-white text-xs font-bold">
+                      {/* <div className="text-white text-xs font-bold">
                         Mastercard
-                      </div>
+                      </div> */}
+                      <img
+                        src="https://www.mastercard.com/content/dam/public/mastercardcom/na/us/en/homepage/Home/mc-logo-52.svg"
+                        className="h-6"
+                      />
                     </div>
                     <div className="absolute bottom-2 left-2 text-[10px] font-mono text-white/70">
                       **** 4444
