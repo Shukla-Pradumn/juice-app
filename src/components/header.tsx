@@ -139,10 +139,8 @@ export function Header() {
           </a>
         </div>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center justify-center flex-grow gap-8">
           <div className="flex items-center gap-8">
-            {/* Payment Solutions Mega Menu */}
             <div className="relative">
               <button
                 onClick={() =>
@@ -213,7 +211,6 @@ export function Header() {
               )}
             </div>
 
-            {/* FAQs Link */}
             <div className="relative">
               <a
                 href="https://juiceclaims.com/rfp"
@@ -227,8 +224,6 @@ export function Header() {
 
         <div className="flex items-center gap-4">
           <ThemeToggle />
-
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
@@ -241,8 +236,6 @@ export function Header() {
           </button>
         </div>
       </div>
-
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
