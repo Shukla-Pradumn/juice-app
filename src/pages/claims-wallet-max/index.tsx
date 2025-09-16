@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Header } from '@/components/header';
 import Footer from '@/components/footer';
+import { BerryChat } from '@/components/claims-wallet-max/chat';
 import { ClaimsWalletCardPlus } from '@/components/claims-wallet-card-plus';
 import {
   HeroSection,
@@ -26,6 +27,7 @@ export default function ClaimsWalletMaxPage() {
   const [transferSuccess, setTransferSuccess] = useState(false);
   const [showTransferModal, setShowTransferModal] = useState(false);
   const [modalPaymentMethod, setModalPaymentMethod] = useState('');
+  const [isRefresh, setIsRefresh] = useState('');
 
   // Wallet data
   const walletData = {
@@ -89,6 +91,7 @@ export default function ClaimsWalletMaxPage() {
 
   const handleRefreshWallet = () => {
     setShowTransferModal(true);
+    setIsRefresh('refresh');
   };
 
   const handleCloseOTPModal = () => {
@@ -127,6 +130,49 @@ export default function ClaimsWalletMaxPage() {
           <FeatureCards />
         </div>
       </main>
+      <div className="fixed top-20 right-4 z-40">
+        <button
+          className="help-toggle-button flex items-center justify-center h-[90px] w-[40px] 
+      bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700
+      shadow-md hover:shadow-lg overflow-hidden relative z-50
+       "
+          aria-label="Toggle help sidebar"
+          style={{
+            width: '40px',
+            height: '90px',
+            opacity: 1,
+            transformOrigin: '50% 50% 0px',
+          }}
+        >
+          <span
+            className="font-medium tracking-wider text-lg transform -rotate-90 text-gray-600 dark:text-gray-400"
+            style={{ opacity: 1 }}
+          >
+            INFO
+          </span>
+          <div
+            className="absolute inset-0 flex items-center justify-center"
+            style={{ opacity: 0 }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              className="lucide lucide-x h-5 w-5 text-gray-600 dark:text-gray-400"
+            >
+              <path d="M18 6 6 18"></path>
+              <path d="m6 6 12 12"></path>
+            </svg>
+          </div>
+        </button>
+      </div>
+      <BerryChat />
       <Footer />
       <OTPModal
         isOpen={showOTPModal}
@@ -141,6 +187,7 @@ export default function ClaimsWalletMaxPage() {
 
       <TransferModal
         isOpen={showTransferModal}
+        isRefresh={isRefresh}
         onClose={handleCloseTransferModal}
         transferAmount={transferAmount}
         setTransferAmount={setTransferAmount}

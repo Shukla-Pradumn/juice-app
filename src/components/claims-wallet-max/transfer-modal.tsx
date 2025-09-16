@@ -2,7 +2,15 @@
 
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Wallet, X, DollarSign, Clock, Shield, ArrowRight, Check } from 'lucide-react';
+import {
+  Wallet,
+  X,
+  DollarSign,
+  Clock,
+  Shield,
+  ArrowRight,
+  Check,
+} from 'lucide-react';
 
 interface TransferModalProps {
   isOpen: boolean;
@@ -14,6 +22,7 @@ interface TransferModalProps {
   modalPaymentMethod: string;
   walletBalance: number;
   onTransfer: () => void;
+  isRefresh: string;
 }
 
 export function TransferModal({
@@ -26,6 +35,7 @@ export function TransferModal({
   modalPaymentMethod,
   walletBalance,
   onTransfer,
+  isRefresh,
 }: TransferModalProps) {
   return (
     <AnimatePresence>
@@ -53,7 +63,7 @@ export function TransferModal({
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-3">
                     <Wallet className="h-6 w-6 text-blue-600" />
-                    <h3 className="text-xl font-bold">
+                    <h3 className="text-xl font-bold dark:text-white">
                       {transferInProgress
                         ? 'Processing...'
                         : `Transfer to ${modalPaymentMethod}`}
@@ -95,14 +105,14 @@ export function TransferModal({
                         <div className="text-sm text-gray-600 dark:text-gray-400">
                           Available Balance
                         </div>
-                        <div className="text-xl font-bold">
+                        <div className="text-xl font-bold dark:text-white">
                           ${walletBalance.toLocaleString()}
                         </div>
                       </div>
                     </div>
 
                     <div className="mb-6">
-                      <label className="block text-sm font-medium mb-2">
+                      <label className="block text-sm font-medium mb-2 dark:text-white">
                         Transfer Amount
                       </label>
                       <div className="relative">
@@ -125,7 +135,11 @@ export function TransferModal({
                     <div className="flex flex-col gap-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
                       <div className="flex items-center gap-2">
                         <Clock className="h-4 w-4" />
-                        <span>Available immediately</span>
+                        <span>
+                          {isRefresh
+                            ? 'Delivery time: 5-7 business days'
+                            : 'Available immediately'}
+                        </span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Shield className="h-4 w-4" />
@@ -162,12 +176,10 @@ export function TransferModal({
                     <Check className="h-8 w-8 text-green-600 dark:text-green-400" />
                   </div>
                 </div>
-                <h3 className="text-xl font-bold mb-2">
-                  Transfer Successful!
-                </h3>
+                <h3 className="text-xl font-bold mb-2">Transfer Successful!</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-6">
-                  ${parseFloat(transferAmount || '0').toFixed(2)} has been
-                  sent to your {modalPaymentMethod.toLowerCase()}.
+                  ${parseFloat(transferAmount || '0').toFixed(2)} has been sent
+                  to your {modalPaymentMethod.toLowerCase()}.
                 </p>
                 <button
                   onClick={onClose}

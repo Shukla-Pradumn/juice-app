@@ -36,7 +36,9 @@ export function FeatureCards() {
             <div className="inline-flex p-3 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 mb-4">
               <feature.icon className="h-6 w-6" />
             </div>
-            <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
+            <h3 className="text-lg font-semibold mb-2  dark:text-white">
+              {feature.title}
+            </h3>
             <p className="text-gray-600 dark:text-gray-400">
               {feature.description}
             </p>

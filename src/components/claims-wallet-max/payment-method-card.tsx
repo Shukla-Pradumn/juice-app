@@ -21,11 +21,11 @@ interface PaymentMethodCardProps {
   variants?: any;
 }
 
-export function PaymentMethodCard({ 
-  method, 
-  isPrimary = false, 
-  onSelect, 
-  variants 
+export function PaymentMethodCard({
+  method,
+  isPrimary = false,
+  onSelect,
+  variants,
 }: PaymentMethodCardProps) {
   if (isPrimary) {
     return (
@@ -58,7 +58,9 @@ export function PaymentMethodCard({
               <div className="p-2 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
                 <CreditCard className="h-6 w-6" />
               </div>
-              <h3 className="text-xl font-bold">Virtual Mastercard</h3>
+              <h3 className="text-xl font-bold dark:text-white">
+                Virtual Mastercard
+              </h3>
               <div className="ml-auto">
                 <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400">
                   INSTANT
@@ -66,9 +68,8 @@ export function PaymentMethodCard({
               </div>
             </div>
             <p className="text-gray-600 dark:text-gray-400 mb-2">
-              Get instant access to your funds with a virtual Mastercard
-              that can be used anywhere online or added to your mobile
-              wallet.
+              Get instant access to your funds with a virtual Mastercard that
+              can be used anywhere online or added to your mobile wallet.
             </p>
             <div className="flex items-center text-blue-600">
               <span className="font-medium">Select Virtual Card</span>
@@ -100,7 +101,7 @@ export function PaymentMethodCard({
           >
             <method.icon className="h-5 w-5" />
           </div>
-          <h3 className="font-bold">{method.name}</h3>
+          <h3 className="font-bold  dark:text-white">{method.name}</h3>
         </div>
         <p className="text-gray-600 dark:text-gray-400 text-sm">
           {method.description}

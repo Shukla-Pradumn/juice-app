@@ -28,7 +28,9 @@ export function ClaimsWalletCardPlus({
         <div className="flex items-center gap-3">
           <Wallet className="h-10 w-10" />
           <div>
-            <h2 className="text-3xl font-bold">Your Claims Wallet</h2>
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+              Your Claims Wallet
+            </h2>
             <p className="text-white/80">Claim #{claimNumber}</p>
           </div>
         </div>

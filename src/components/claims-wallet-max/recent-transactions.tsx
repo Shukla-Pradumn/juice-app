@@ -38,31 +38,46 @@ export function RecentTransactions() {
   return (
     <div className="max-w-5xl mx-auto mb-16">
       <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
-        <h2 className="text-2xl font-bold mb-6">Recent Transactions</h2>
+        <h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+          Recent Transactions
+        </h2>
 
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
               <tr className="border-b border-gray-200 dark:border-gray-700">
-                <th className="text-left py-4 px-4">Date</th>
-                <th className="text-left py-4 px-4">Description</th>
-                <th className="text-left py-4 px-4">Amount</th>
-                <th className="text-left py-4 px-4">Status</th>
-                <th className="text-left py-4 px-4">Method</th>
+                <th className="text-left py-4 px-4  dark:text-white">Date</th>
+                <th className="text-left py-4 px-4  dark:text-white">
+                  Description
+                </th>
+                <th className="text-left py-4 px-4  dark:text-white">Amount</th>
+                <th className="text-left py-4 px-4  dark:text-white">Status</th>
+                <th className="text-left py-4 px-4  dark:text-white">Method</th>
               </tr>
             </thead>
             <tbody>
               {transactions.map((transaction, index) => (
-                <tr key={index} className="border-b border-gray-200 dark:border-gray-700">
-                  <td className="py-4 px-4">{transaction.date}</td>
-                  <td className="py-4 px-4">{transaction.description}</td>
-                  <td className="py-4 px-4">{transaction.amount}</td>
-                  <td className="py-4 px-4">
+                <tr
+                  key={index}
+                  className="border-b border-gray-200 dark:border-gray-700"
+                >
+                  <td className="py-4 px-4 dark:text-white">
+                    {transaction.date}
+                  </td>
+                  <td className="py-4 px-4 dark:text-white">
+                    {transaction.description}
+                  </td>
+                  <td className="py-4 px-4 dark:text-white">
+                    {transaction.amount}
+                  </td>
+                  <td className="py-4 px-4 dark:text-white">
                     <span className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400">
                       {transaction.status}
                     </span>
                   </td>
-                  <td className="py-4 px-4">{transaction.method}</td>
+                  <td className="py-4 px-4 dark:text-white">
+                    {transaction.method}
+                  </td>
                 </tr>
               ))}
             </tbody>
