@@ -82,7 +82,7 @@ export function PaymentMethodsGrid({
       initial="hidden"
       animate="visible"
     >
-      <h2 className="text-2xl font-bold mb-8 text-center">
+      <h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent text-center">
         Select Payment Method
       </h2>
 

@@ -113,7 +113,7 @@ export function BerryChat() {
   };
 
   return (
-    <div className="fixed bottom-6 z-50" style={{ right: '20px' }}>
+    <div className="fixed bottom-14 z-50" style={{ right: '20px' }}>
       <div
         className={`chat-window-wrapper transition-all duration-300 ease-in-out ${
           isOpen
@@ -198,13 +198,13 @@ export function BerryChat() {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Type your question..."
-                className="flex-1 resize-none border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white min-h-[36px] max-h-20"
+                className="flex-1 resize-none rounded-lg px-3 py-2 text-sm focus:outline-none dark:bg-gray-700 dark:text-white min-h-[36px] max-h-20"
                 rows={1}
               />
               <button
                 onClick={sendMessage}
                 disabled={!inputValue.trim() || isTyping}
-                className="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="text-black p-2 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 <svg
                   className="w-4 h-4"
@@ -222,7 +222,7 @@ export function BerryChat() {
       {/* Toggle Button */}
       <button
         onClick={toggleChat}
-        className={`bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full shadow-lg transition-all duration-300 ${
+        className={`bg-blue-600 hover:bg-blue-700 right-8 bottom-6 fixed text-white p-4 rounded-full shadow-lg transition-all duration-300 ${
           isOpen ? 'rotate-0' : 'rotate-0 hover:scale-110'
         }`}
       >
