@@ -124,20 +124,107 @@ export function TransferModal({
                           value={transferAmount}
                           onChange={(e) => setTransferAmount(e.target.value)}
                           placeholder="0.00"
-                          className="w-full pl-8 pr-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 text-xl"
+                          className="w-full pl-8 pr-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 text-xl dark:bg-gray-950"
                           min="0.01"
                           max={walletBalance}
                           step="0.01"
                         />
                       </div>
                     </div>
+                    {isRefresh === 'direct-card' && (
+                      <div className="space-y-4 mb-6">
+                        <div>
+                          <label className="block text-sm font-medium mb-2 dark:text-white">
+                            Card Number
+                          </label>
+                          <input
+                            type="text"
+                            className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-950"
+                            placeholder="Card number"
+                          />
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <label className="block text-sm font-medium mb-2 dark:text-white">
+                              Expiration Date
+                            </label>
+                            <input
+                              type="text"
+                              className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-950"
+                              placeholder="MM/YY"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium mb-2 dark:text-white">
+                              Zip Code
+                            </label>
+                            <input
+                              type="text"
+                              className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-950"
+                              placeholder="Billing zip code"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    )}
 
+                    {isRefresh === 'ach' && (
+                      <div className="space-y-4 mb-6">
+                        <div>
+                          <label className="block text-sm font-medium mb-2 dark:text-white">
+                            Bank Name
+                          </label>
+                          <input
+                            type="text"
+                            className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-950"
+                            placeholder="Enter bank name"
+                          />
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <label className="block text-sm font-medium mb-2 dark:text-white">
+                              Routing Number
+                            </label>
+                            <input
+                              type="text"
+                              className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-950"
+                              placeholder="9 digits"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium mb-2 dark:text-white">
+                              Account Number
+                            </label>
+                            <input
+                              type="text"
+                              className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-950"
+                              placeholder="Account number"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                    {isRefresh === 'check' && (
+                      <div className="space-y-4 mb-6">
+                        <div>
+                          <label className="block text-sm font-medium mb-2 dark:text-white">
+                            Mailing Address
+                          </label>
+                          <textarea
+                            className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-950"
+                            placeholder="Enter your mailing address"
+                          ></textarea>
+                        </div>
+                      </div>
+                    )}
                     <div className="flex flex-col gap-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
                       <div className="flex items-center gap-2">
                         <Clock className="h-4 w-4" />
                         <span>
-                          {isRefresh
+                          {isRefresh === 'refresh'
                             ? 'Delivery time: 5-7 business days'
+                            : isRefresh === 'direct-card'
+                            ? 'Typically takes 10-30 minutes'
                             : 'Available immediately'}
                         </span>
                       </div>

@@ -64,6 +64,7 @@ export default function ClaimsWalletMaxPage() {
     if (method) {
       setModalPaymentMethod(method.name);
       setShowTransferModal(true);
+      setIsRefresh(method.id);
     }
   };
 
