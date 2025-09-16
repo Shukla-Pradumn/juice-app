@@ -95,7 +95,7 @@ export function PaymentMethodCard({
               method.id === 'direct-card'
                 ? 'bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400'
                 : method.id === 'ach'
-                ? 'bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400'
+                ? 'bg-purple-50  dark:text-purple-400'
                 : 'bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400'
             }`}
           >

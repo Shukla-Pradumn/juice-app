@@ -13,6 +13,7 @@ import {
   OTPModal,
   TransferModal,
 } from '@/components/claims-wallet-max';
+import InfoDrawer from '@/components/claims-wallet-max/info-drawer';
 
 export default function ClaimsWalletMaxPage() {
   const [showOTPModal, setShowOTPModal] = useState(false);
@@ -114,7 +115,6 @@ export default function ClaimsWalletMaxPage() {
         <div className="container mx-auto px-4 py-12">
           <HeroSection />
 
-          {/* Wallet Display */}
           <div className="max-w-5xl mx-auto mb-10">
             <ClaimsWalletCardPlus
               balance={walletData.balance}
@@ -132,46 +132,7 @@ export default function ClaimsWalletMaxPage() {
         </div>
       </main>
       <div className="fixed top-20 right-4 z-40">
-        <button
-          className="help-toggle-button flex items-center justify-center h-[90px] w-[40px] 
-      bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700
-      shadow-md hover:shadow-lg overflow-hidden relative z-50
-       "
-          aria-label="Toggle help sidebar"
-          style={{
-            width: '40px',
-            height: '90px',
-            opacity: 1,
-            transformOrigin: '50% 50% 0px',
-          }}
-        >
-          <span
-            className="font-medium tracking-wider text-lg transform -rotate-90 text-gray-600 dark:text-gray-400"
-            style={{ opacity: 1 }}
-          >
-            INFO
-          </span>
-          <div
-            className="absolute inset-0 flex items-center justify-center"
-            style={{ opacity: 0 }}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              className="lucide lucide-x h-5 w-5 text-gray-600 dark:text-gray-400"
-            >
-              <path d="M18 6 6 18"></path>
-              <path d="m6 6 12 12"></path>
-            </svg>
-          </div>
-        </button>
+        <InfoDrawer />
       </div>
       <BerryChat />
       <Footer />

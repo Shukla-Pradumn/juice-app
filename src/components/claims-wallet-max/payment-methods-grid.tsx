@@ -19,7 +19,9 @@ interface PaymentMethodsGridProps {
   onSelectPaymentMethod: (methodId: string) => void;
 }
 
-export function PaymentMethodsGrid({ onSelectPaymentMethod }: PaymentMethodsGridProps) {
+export function PaymentMethodsGrid({
+  onSelectPaymentMethod,
+}: PaymentMethodsGridProps) {
   const paymentMethods: PaymentMethod[] = [
     {
       id: 'virtual-card',
@@ -91,7 +93,7 @@ export function PaymentMethodsGrid({ onSelectPaymentMethod }: PaymentMethodsGrid
           onSelect={onSelectPaymentMethod}
           variants={cardVariants}
         />
-        
+
         {paymentMethods.slice(1).map((method) => (
           <PaymentMethodCard
             key={method.id}
