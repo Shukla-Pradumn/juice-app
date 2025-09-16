@@ -160,8 +160,8 @@ const InfoDrawer = () => {
                   Adding to Mobile Wallet
                 </h5>
                 <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  After activation, use the 'Add to Mobile Wallet' options to
-                  add your card to your preferred mobile payment app.
+                  After activation, use the &apos;Add to Mobile Wallet&apos;
+                  options to add your card to your preferred mobile payment app.
                 </p>
               </div>
 
