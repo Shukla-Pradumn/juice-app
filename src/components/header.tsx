@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ThemeToggle } from './theme-toggle';
@@ -8,7 +8,7 @@ import {
   ChevronDown,
   CreditCard,
   FileText,
-  Link as LinkIcon,
+  ExternalLink,
   Menu,
   X,
   Building2,
@@ -16,11 +16,67 @@ import {
   Wallet,
   Home,
   Globe,
+  Check,
+  Settings,
 } from 'lucide-react';
 
 export function Header() {
   const [isPaymentSolutionsOpen, setIsPaymentSolutionsOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState('English');
+
+  const languageDropdownRef = useRef<HTMLDivElement>(null);
+  const languageButtonRef = useRef<HTMLButtonElement>(null);
+
+  // Language options
+  const languages = [
+    { code: 'en', name: 'English', nativeName: 'English' },
+    { code: 'zh', name: 'Chinese', nativeName: '中文' },
+    { code: 'pt', name: 'Portuguese', nativeName: 'Português' },
+    { code: 'es', name: 'Spanish', nativeName: 'Español' },
+    { code: 'fr', name: 'French', nativeName: 'Français' },
+    { code: 'ja', name: 'Japanese', nativeName: '日本語' },
+  ];
+
+  // Close language dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        languageDropdownRef.current &&
+        !languageDropdownRef.current.contains(event.target as Node) &&
+        languageButtonRef.current &&
+        !languageButtonRef.current.contains(event.target as Node)
+      ) {
+        setIsLanguageDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Close dropdown when pressing Escape
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsLanguageDropdownOpen(false);
+      }
+    };
+
+    if (isLanguageDropdownOpen) {
+      document.addEventListener('keydown', handleEscape);
+    }
+
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isLanguageDropdownOpen]);
+
+  const handleLanguageSelect = (language: (typeof languages)[0]) => {
+    setSelectedLanguage(language.name);
+    setIsLanguageDropdownOpen(false);
+    // Here you would typically handle the language change
+    console.log('Selected language:', language);
+  };
 
   // Payment Solutions mega menu categories
   const paymentSolutionsCategories = [
@@ -73,7 +129,7 @@ export function Header() {
           title: 'Pay Link',
           description:
             'Create a one-time payment link with customizable options',
-          icon: LinkIcon,
+          icon: ExternalLink,
           href: '/pay-link',
         },
         {
@@ -225,6 +281,71 @@ export function Header() {
 
         <div className="flex items-center gap-4">
           <ThemeToggle />
+
+          {/* Language Selector for Desktop */}
+          <div className="relative hidden md:block">
+            <button
+              ref={languageButtonRef}
+              onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
+              className="flex items-center gap-1 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              aria-label="Language selector"
+              aria-expanded={isLanguageDropdownOpen}
+              aria-haspopup="true"
+            >
+              <Globe className="h-5 w-5" />
+            </button>
+
+            {/* Language Dropdown */}
+            {isLanguageDropdownOpen && (
+              <>
+                {/* Backdrop */}
+                <div
+                  className="fixed inset-0 z-40"
+                  onClick={() => setIsLanguageDropdownOpen(false)}
+                />
+
+                {/* Dropdown Menu */}
+                <div
+                  ref={languageDropdownRef}
+                  className="absolute right-0 top-full mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-50 py-2"
+                  role="menu"
+                  aria-orientation="vertical"
+                  aria-labelledby="language-menu"
+                >
+                  {languages.map((language) => (
+                    <button
+                      key={language.code}
+                      onClick={() => handleLanguageSelect(language)}
+                      className={`w-full px-4 py-3 text-left hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors flex items-center justify-between ${
+                        selectedLanguage === language.name
+                          ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400'
+                          : 'text-gray-700 dark:text-gray-200'
+                      }`}
+                      role="menuitem"
+                    >
+                      <span className="text-sm font-medium">
+                        {language.nativeName}
+                      </span>
+                      {selectedLanguage === language.name && (
+                        <Check className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                      )}
+                    </button>
+                  ))}
+
+                  {/* Divider */}
+                  <div className="border-t border-gray-200 dark:border-gray-600 my-2"></div>
+
+                  {/* Additional Options */}
+                  <button className="w-full px-4 py-2 text-left text-sm text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors flex items-center">
+                    <Settings className="w-4 h-4 mr-2" />
+                    Language Settings
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
+
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
@@ -236,89 +357,9 @@ export function Header() {
             )}
           </button>
         </div>
-        {/* <div className="flex items-center gap-4">
-          <button
-            className="relative w-6 h-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-            aria-label="Toggle theme"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              className="lucide lucide-sun absolute inset-0 h-full w-full transition-all duration-300 opacity-100 rotate-0 dark:opacity-0 dark:-rotate-90"
-            >
-              <circle cx="12" cy="12" r="4"></circle>
-              <path d="M12 2v2"></path>
-              <path d="M12 20v2"></path>
-              <path d="m4.93 4.93 1.41 1.41"></path>
-              <path d="m17.66 17.66 1.41 1.41"></path>
-              <path d="M2 12h2"></path>
-              <path d="M20 12h2"></path>
-              <path d="m6.34 17.66-1.41 1.41"></path>
-              <path d="m19.07 4.93-1.41 1.41"></path>
-            </svg>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              className="lucide lucide-moon absolute inset-0 h-full w-full transition-all duration-300 opacity-0 rotate-90 dark:opacity-100 dark:rotate-0"
-            >
-              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
-            </svg>
-          </button>
-          <div className="relative hidden md:block">
-            <button className="flex items-center gap-1 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="lucide lucide-globe h-5 w-5"
-              >
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
-                <path d="M2 12h20"></path>
-              </svg>
-            </button>
-          </div>
-          <button className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              className="lucide lucide-menu h-6 w-6"
-            >
-              <line x1="4" x2="20" y1="12" y2="12"></line>
-              <line x1="4" x2="20" y1="6" y2="6"></line>
-              <line x1="4" x2="20" y1="18" y2="18"></line>
-            </svg>
-          </button>
-        </div> */}
       </div>
+
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -329,6 +370,32 @@ export function Header() {
             className="md:hidden border-t border-gray-200 dark:border-gray-800 bg-[#f9fafb] dark:bg-gray-950"
           >
             <div className="p-4 space-y-6">
+              {/* Language Selector for Mobile */}
+              <div className="space-y-2">
+                <div className="font-medium text-sm text-gray-600 dark:text-gray-400">
+                  LANGUAGE
+                </div>
+                <div className="ml-4 space-y-2">
+                  {languages.map((language) => (
+                    <button
+                      key={language.code}
+                      onClick={() => handleLanguageSelect(language)}
+                      className={`w-full text-left px-4 py-2 rounded-lg transition-colors flex items-center justify-between ${
+                        selectedLanguage === language.name
+                          ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400'
+                          : 'hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200'
+                      }`}
+                    >
+                      <span className="font-medium">{language.nativeName}</span>
+                      {selectedLanguage === language.name && (
+                        <Check className="w-4 h-4" />
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Payment Solutions for Mobile */}
               <div className="space-y-2">
                 <div className="font-medium text-sm text-gray-600 dark:text-gray-400">
                   PAYMENT SOLUTIONS
@@ -364,6 +431,7 @@ export function Header() {
                 ))}
               </div>
 
+              {/* FAQs for Mobile */}
               <div className="space-y-2">
                 <Link
                   href="/faq"

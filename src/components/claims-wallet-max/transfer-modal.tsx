@@ -221,10 +221,12 @@ export function TransferModal({
                       <div className="flex items-center gap-2">
                         <Clock className="h-4 w-4" />
                         <span>
-                          {isRefresh === 'refresh'
+                          {isRefresh === 'refresh' || isRefresh === 'check'
                             ? 'Delivery time: 5-7 business days'
                             : isRefresh === 'direct-card'
                             ? 'Typically takes 10-30 minutes'
+                            : isRefresh === 'ach'
+                            ? 'Processing time: 1-3 business days'
                             : 'Available immediately'}
                         </span>
                       </div>
